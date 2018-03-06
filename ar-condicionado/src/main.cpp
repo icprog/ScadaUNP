@@ -49,11 +49,11 @@ void loop()
 	mb.task();
 	//saída digital
 		//precisa mandar nível lógico low para a entrada do relé.
-	digitalWrite(ar_condicionado_001, !mb.Coil(mb_reg_ar_condicionado_001));	//ar condicionado
+	digitalWrite(ar_condicionado_001, !mb.Coil(mb_reg_ar_condicionado_001)); //ar condicionado
 	digitalWrite(lampada_001, !mb.Coil(mb_reg_lampada_001)); //lâmpada
 
 	//entrada analógica
-	mb.Ists(mb_reg_dht_temperatura_001, dht.readTemperature());
-	mb.Ists(mb_reg_dht_umidade_001, dht.readHumidity());
+	mb.Ireg(mb_reg_dht_temperatura_001, dht.readTemperature());
+	mb.Ireg(mb_reg_dht_umidade_001, dht.readHumidity());
 	delay(200);
 }
