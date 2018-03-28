@@ -12,7 +12,7 @@
 //<--- Configuração da Pinagem do ESP-32 --->
 const unsigned int ar_condicionado_001 = 33;
 const unsigned int lampada_001 = 17;
-const unsigned int dht_001 = 25; //testar essa porta
+const unsigned int dht_001 = 25;
 
 //<--- Modbus register offsets --->
 const unsigned int mb_reg_ar_condicionado_001 = 1;
@@ -29,6 +29,9 @@ DHT dht(dht_001, DHT22);
 //<--- Cabeçalhos de funções --->
 void float_to_word_array(float, word *);
 
+//<--- Variáveis globais --->
+unsigned int tempo = 0;
+
 
 void setup()
 {
@@ -38,7 +41,6 @@ void setup()
 	//setup dos pinos
 	pinMode(ar_condicionado_001, OUTPUT);
 	pinMode(lampada_001, OUTPUT);
-	//pinMode(dht_001, INPUT_PULLUP); //testar se isso é necessário.
 
 	//Adicionando registradores do Modbus
 	mb.addCoil(mb_reg_ar_condicionado_001);
@@ -59,15 +61,16 @@ void loop()
 
 
 	//necessário para converter valores float para a leitura no modbus.
-	word reg[2];
-	float_to_word_array(dht.readTemperature(), reg);
-	mb.Ireg(mb_reg_dht_temperatura_001, reg[1]);
-	mb.Ireg(mb_reg_dht_temperatura_002, reg[0]);
-	float_to_word_array(dht.readHumidity(), reg);
-	mb.Ireg(mb_reg_dht_umidade_001, reg[1]);
-	mb.Ireg(mb_reg_dht_umidade_002, reg[0]);
-
-	delay(200); //testar se é necessário, e trocar por millis()
+	if((millis()-tempo) < 2000){
+		tempo = millis();
+		word reg[2];
+		float_to_word_array(dht.readTemperature(), reg);
+		mb.Ireg(mb_reg_dht_temperatura_001, reg[1]);
+		mb.Ireg(mb_reg_dht_temperatura_002, reg[0]);
+		float_to_word_array(dht.readHumidity(), reg);
+		mb.Ireg(mb_reg_dht_umidade_001, reg[1]);
+		mb.Ireg(mb_reg_dht_umidade_002, reg[0]);
+	}
 } //end loop
 
 
