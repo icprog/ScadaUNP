@@ -1,4 +1,4 @@
-/*  Programa para testar o sensor de presença com arduino Arduino
+/*  Programa para testar o sensor de presença com Arduino
  *  Escrito por Will Douglas
  *
  *  Hardware:
