@@ -1,4 +1,4 @@
-# Automação e controle do ar-condicionado do laboratório BatCaverna.
+# Automação do ar-condicionado no laboratório BatCaverna.
 
 ## Feito:
 - Ar condicionado.
