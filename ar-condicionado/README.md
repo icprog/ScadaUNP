@@ -1,9 +1,13 @@
-Automação e controle do ar-condicionado do laboratório BatCaverna.
+# Automação e controle do ar-condicionado do laboratório BatCaverna.
 
-Feito:
--Ar condicionado funcionando com Scadabr
--Lâmpada funcionando com Scadabr
+## Feito:
+- Ar condicionado.
+- Lâmpada.
+- Sensor de Temperatura e Umidade.
+- Sensor de Presença.
+- Sensor de Gás e fumaça.
 
-A fazer:
--Testar implementação do sensor de Umidade e temperatura DHT11
--implementar outros sensores
+## A fazer:
+- Trocar biblioteca do sensor de presença.
+- Sensor de corrente.
+- Sensor RFID.
