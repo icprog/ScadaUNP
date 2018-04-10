@@ -15,6 +15,7 @@ const unsigned int ar_condicionado_001 = 33;
 const unsigned int lampada_001 = 17;
 const unsigned int dht_001 = 25;
 const unsigned int gas_001 = 18;
+const unsigned int presenca_001 = 19;
 
 //<--- Modbus register offsets --->
 const unsigned int mb_reg_ar_condicionado_001 = 1;
@@ -24,6 +25,7 @@ const unsigned int mb_reg_dht_temperatura_002 = 4;
 const unsigned int mb_reg_dht_umidade_001 = 5;
 const unsigned int mb_reg_dht_umidade_002 = 6;
 const unsigned int mb_reg_gas_001 = 7;
+const unsigned int mb_reg_presenca_001 = 8;
 
 //<--- Objetos --->
 ModbusIP mb;
@@ -53,6 +55,7 @@ void setup()
 	mb.addIreg(mb_reg_dht_temperatura_002);
 	mb.addIreg(mb_reg_dht_umidade_002);
 	mb.addIreg(mb_reg_gas_001);
+	mb.addIsts(mb_reg_presenca_001);
 } //end setup
 
 
@@ -75,6 +78,7 @@ void loop()
 		mb.Ireg(mb_reg_dht_umidade_001, reg[1]);
 		mb.Ireg(mb_reg_dht_umidade_002, reg[0]);
 		mb.Ireg(mb_reg_gas_001, analogRead(gas_001));
+		mb.Ists(mb_reg_presenca_001, digitalRead(presenca_001));
 	}
 } //end loop
 
