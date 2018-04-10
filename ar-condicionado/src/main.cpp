@@ -2,6 +2,7 @@
 *Automação e controle do Laboratório BatCaverna
 *Autor: Will Douglas
 */
+
 //<--- Bibliotecas --->
 #include <Arduino.h>
 #include <Modbus.h>
@@ -13,6 +14,7 @@
 const unsigned int ar_condicionado_001 = 33;
 const unsigned int lampada_001 = 17;
 const unsigned int dht_001 = 25;
+const unsigned int gas_001 = 18;
 
 //<--- Modbus register offsets --->
 const unsigned int mb_reg_ar_condicionado_001 = 1;
@@ -21,6 +23,7 @@ const unsigned int mb_reg_dht_temperatura_001 = 3;
 const unsigned int mb_reg_dht_temperatura_002 = 4;
 const unsigned int mb_reg_dht_umidade_001 = 5;
 const unsigned int mb_reg_dht_umidade_002 = 6;
+const unsigned int mb_reg_gas_001 = 7;
 
 //<--- Objetos --->
 ModbusIP mb;
@@ -49,6 +52,7 @@ void setup()
 	mb.addIreg(mb_reg_dht_umidade_001);
 	mb.addIreg(mb_reg_dht_temperatura_002);
 	mb.addIreg(mb_reg_dht_umidade_002);
+	mb.addIreg(mb_reg_gas_001);
 } //end setup
 
 
@@ -70,6 +74,7 @@ void loop()
 		float_to_word_array(dht.readHumidity(), reg);
 		mb.Ireg(mb_reg_dht_umidade_001, reg[1]);
 		mb.Ireg(mb_reg_dht_umidade_002, reg[0]);
+		mb.Ireg(mb_reg_gas_001, analogRead(gas_001));
 	}
 } //end loop
 
