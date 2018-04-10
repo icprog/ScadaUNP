@@ -1,4 +1,3 @@
-# ScadaUNP
 ## Projetos de automação e IOT, controlados pelo supervisório ScadaBR, desenvolvidos por estudantes de Engenharia Elétrica na Universidade Potiguar.
 
 Nosso fluxograma funciona assim:
