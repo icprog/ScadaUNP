@@ -1,13 +1,10 @@
-# Automação do ar-condicionado no laboratório BatCaverna.
+# Automação do laboratório BatCaverna.
 
-## Feito:
-- Ar condicionado.
-- Lâmpada.
-- Sensor de Temperatura e Umidade.
-- Sensor de Presença.
-- Sensor de Gás e fumaça.
-
-## A fazer:
-- Trocar biblioteca do sensor de presença.
-- Sensor de corrente.
-- Sensor RFID.
+- [x] Ar condicionado.
+- [x] Lâmpada.
+- [x] Sensor de Temperatura e Umidade.
+- [x] Sensor de Presença.
+- [x] Sensor de Gás e fumaça.
+- [ ] Trocar biblioteca do sensor de presença.
+- [ ] Sensor de corrente.
+- [ ] Sensor RFID.
